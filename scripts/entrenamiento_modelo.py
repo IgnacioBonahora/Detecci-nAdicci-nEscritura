@@ -49,4 +49,19 @@ print(f'Pérdida: {loss}, Precisión: {accuracy}')
 predicciones = model.predict(X_test)
 umbral = 0.5
 etiquetas_predichas = (predicciones > umbral).astype(int)
-print("Predicciones (primeras 10):", etiquetas_predichas[:10])
+print("**********************************")
+
+print("Predicciones (primeras 25):\n", etiquetas_predichas[:25])#cantidad ede predicciones ajustable
+
+print("************tabla de salida**********************")
+# Crear una tabla con las primeras 25 predicciones y las etiquetas reales
+data = {'Ejemplo': np.arange(1, 26), 
+        'Etiqueta Real': y_test[:25], 
+        'Predicción': etiquetas_predichas[:25].flatten()}
+
+df_resultados = pd.DataFrame(data)
+print(df_resultados)
+
+
+
+
